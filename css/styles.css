@@ -145,7 +145,6 @@ img {
     border-radius: 2px;
     width: 100%;
     height: 4px;
-    transform: translateY(32px);
 }
 
 .icons-contacts {
@@ -249,7 +248,6 @@ img {
 }
 
 .features .features-items {
-  width: 270px;
   flex-basis: calc((100% - 90px) / 4);
   margin-right: 30px;
 }
@@ -303,7 +301,6 @@ img {
 
 .our-job-items {
   position: relative;
-  width: 370px;
   width: calc((100% - 60px) / 3);
   margin-right: 30px;
 }
@@ -338,7 +335,6 @@ text-align: center;
 }
 
 .team-items {
-  width: 270px;
   width: calc((100% - 90px) / 4);
   margin-right: 30px;
   background-color: var(--white-color);
@@ -413,7 +409,6 @@ text-align: center;
 
 .client-icons {
   display: flex;
-  width: 170px;
   flex-basis: calc((100% - 30px) / 6);
   height: 92px;
   margin-right: 30px;
@@ -568,16 +563,14 @@ text-align: center;
 }
 
 .project .project-item {
-  width: 370px;
   width: calc((100% - 60px) / 3);
   margin-right: 30px;
   margin-bottom: 30px;
   border: 1px solid #eeeeee;
-  overflow: hidden;
 }
 
-.project .project-item:hover,
-.project .project-item:focus
+.project-item:hover .project-title,
+.project-item:focus .project-title
  {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
@@ -590,6 +583,7 @@ text-align: center;
 .project .project-item:nth-last-child(-n + 3) {
   margin-bottom: 0;
 }
+
 
 .project .title {
   color: var(--black-color);
@@ -606,7 +600,7 @@ text-align: center;
   color: var(--text-color);
   font-size: 16px;
   line-height: 1.88;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
   padding-left: 24px;
 }
 
@@ -658,6 +652,8 @@ line-height: 1.56;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transition: opacity 250ms var(--timing);
 }
 
 .backdrop.is-hidden{
@@ -665,14 +661,19 @@ line-height: 1.56;
   pointer-events: none;
 }
 
+.backdrop.is-hidden .modal{
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
 .modal{
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
   min-width: 528px;
   min-height: 581px;
   background-color: var(--white-color);
+  transition: transform 250ms var(--timing);
 }
 
 .icon-close{
