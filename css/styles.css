@@ -66,6 +66,10 @@ img {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.header a{
+  transition: color 250ms var(--timing);
+}
+
 .header a:hover,
 .header a:focus {
   color: var(--accent-color);
@@ -153,6 +157,10 @@ img {
   transition: fill 1000ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.link .icons-contacts {
+  transition: fill 250ms var(--timing);
+}
+
 .link:hover .icons-contacts,
 .link:focus .icons-contacts 
 {
@@ -210,7 +218,7 @@ img {
   cursor: pointer;
   text-align: center;
   margin-bottom: 106px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms var(--timing);
 }
 
 .btn:hover,
@@ -379,6 +387,7 @@ text-align: center;
   margin-right: 10px;
   align-items: center;
   justify-content: center;
+  transition: background-color 250ms var(--timing);
 }
 
 .team-icons:last-child {
@@ -397,10 +406,16 @@ text-align: center;
   justify-content: center;
 }
 
+.team-icons .icons{
+  transition: fill 250ms var(--timing);
+}
+
 .team-icons:hover .icons,
 .team-icons:focus .icons {
   fill: var(--white-color);
 }
+
+
 
 /*partners*/
 .our-partners {
@@ -417,6 +432,7 @@ text-align: center;
   border-radius: 4px;
   align-items: center;
   justify-content: center;
+  transition: border 250ms var(--timing);
 }
 
 .client-icons:last-child {
@@ -430,6 +446,10 @@ text-align: center;
 
 .icons-partners {
   fill: var(--icon-color);
+}
+
+.client-icons .icons-partners {
+  transition: fill 250ms var(--timing);
 }
 
 .client-icons:hover .icons-partners,
@@ -471,11 +491,12 @@ text-align: center;
   color: var(--text-color);
   font-size: 14px;
   line-height: 2;
+  transition: color 250ms var(--timing);
 }
 
 .contacts:hover,
 .contacts:focus {
-  color: var(--accent-color);
+  color: var(--white-color);
 }
 
 .post-contacts {
@@ -533,6 +554,7 @@ text-align: center;
   background-color: var(--background-color-block);
   border-radius: 4px;
   padding: 6px 22px;
+  transition: bacground-color 250ms var(--timing), color 250ms var(--timing), box-shadow 250ms var(--timing);
 }
 
 .btn-filret:hover,
@@ -562,25 +584,29 @@ text-align: center;
   flex-wrap: wrap;
 }
 
-.project .project-item {
+.project-item {
   width: calc((100% - 60px) / 3);
   margin-right: 30px;
   margin-bottom: 30px;
   border: 1px solid #eeeeee;
 }
 
-.project-item:hover .project-title,
-.project-item:focus .project-title
+.project-title{
+  transition: box-shadow 250ms var(--timing);
+}
+
+.project-title:hover,
+.project-title:focus 
  {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-.project .project-item:nth-child(3n) {
+.project-item:nth-child(3n) {
   margin-right: 0;
 }
 
-.project .project-item:nth-last-child(-n + 3) {
+.project-item:nth-last-child(-n + 3) {
   margin-bottom: 0;
 }
 
@@ -591,8 +617,8 @@ text-align: center;
   font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
-  margin-top: 20px;
-  margin-bottom: 4px;
+  padding-top: 20px;
+  padding-bottom: 4px;
   padding-left: 24px;
 }
 
@@ -654,11 +680,14 @@ line-height: 1.56;
   background: rgba(0, 0, 0, 0.2);
   opacity: 1;
   transition: opacity 250ms var(--timing);
+  visibility: visible;
 }
 
 .backdrop.is-hidden{
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
+  transition: opacity 250ms var(--timing), visibility 250ms var(--timing);
 }
 
 .backdrop.is-hidden .modal{
@@ -673,10 +702,13 @@ line-height: 1.56;
   min-width: 528px;
   min-height: 581px;
   background-color: var(--white-color);
+  box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%), 0px 2px 1px rgb(0 0 0 / 20%);
+    border-radius: 4px;
   transition: transform 250ms var(--timing);
+  
 }
 
-.icon-close{
+[data-modal-close] {
   position: absolute;
   display: flex;
   align-items: center;
@@ -687,7 +719,11 @@ line-height: 1.56;
   height: 30px;
   fill: var(--black-color);
   border-radius: 50%;
-  border: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  
+}
+[data-modal-close]:hover,
+[data-modal-close]:focus {
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: background-color 250ms var(--timing);
 }
